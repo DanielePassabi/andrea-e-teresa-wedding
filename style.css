@@ -506,4 +506,24 @@ body {
         font-size: 1rem;
         line-height: 1.6;
     }
+
+    /* a) “ANDREA & TERESA” su tre righe */
+    .hero-name,
+    .hero-amp {
+        display: block;
+        /* uno sotto l’altro */
+        line-height: 1.1;
+    }
+
+    /* b) IBAN ridotto */
+    .gift-text strong {
+        font-size: 0.9rem;
+        letter-spacing: .5px;
+    }
+
+    /* c) Titolo – Come ci siamo conosciuti */
+    .story-title {
+        font-size: 2.25rem;
+        /* prima ~3rem */
+    }
 }
