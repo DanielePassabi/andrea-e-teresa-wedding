@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Vero Matrimonio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #F7D0A1 0%, #F8DAB4 100%);
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .image-container {
+            position: relative;
+            width: min(600px, 80vw);
+            height: min(600px, 80vw);
+            max-width: 800px;
+            max-height: 1000px;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease-in-out;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container:hover .image-wrapper {
+            transform: rotateY(180deg);
+        }
+
+        .image-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            backface-visibility: hidden;
+            overflow: hidden;
+        }
+
+        .image-front {
+            background: url('images/secrets/image0.png') center/cover no-repeat;
+            background-color: #f0f0f0;
+        }
+
+        .image-back {
+            background: url('images/secrets/image2.png') center/cover no-repeat;
+            background-color: #e0e0e0;
+            transform: rotateY(180deg);
+        }
+
+        /* Fallback styling if images don't load */
+        .image-front::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .image-back::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .title {
+            color: white;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin: 0 0 30px 0;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .instruction {
+            color: white;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin: 30px 0 0 0;
+            padding: 0 20px;
+            max-width: 90vw;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .image-container {
+                width: min(280px, 85vw);
+                height: min(280px, 85vw);
+            }
+
+            /* Add touch support for mobile devices */
+            .image-container:active .image-wrapper {
+                transform: rotateY(180deg);
+            }
+
+            .title {
+                margin-bottom: 20px;
+            }
+
+            .instruction {
+                margin-top: 20px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .image-container {
+                width: min(250px, 90vw);
+                height: min(250px, 90vw);
+            }
+        }
+
+        /* Touch device optimization */
+        @media (hover: none) and (pointer: coarse) {
+            .instruction {
+                content: 'Tap the image to see the rotation effect';
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Andrea & Daniele</h1>
+
+    <div class="image-container">
+        <div class="image-wrapper">
+            <div class="image-side image-front"></div>
+            <div class="image-side image-back"></div>
+        </div>
+    </div>
+
+    <p class="instruction">Sei arrivato fino a qui? ❤️ Al matrimonio indossa un dettaglio rosso e mantieni il segreto.
+    </p>
+</body>
+
+</html>
